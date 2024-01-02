@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Mooli&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+/* Aquí van todas las variables que utilizaremos en nuestro proyecto */
+
+:root {
+  /* Fonts */
+  --rc-font-primary: 'Roboto', sans-serif;
+  --rc-font-secondary: 'Mooli', sans-serif;
+
+  /* Colors */
+  --rc-color-white: #fdfcfc;
+  --rc-color-light-gray: #f6f6f6;
+  --rc-color-blue: #8eadd5;
+  --rc-color-dark: #201f1f;
+
+  /* Backgrounds */
+  --rc-bg-primary: var(--rc-color-white);
+  --rc-bg-secondary: var(--rc-color-light-gray);
+  --rc-bg-accent: var(--rc-color-blue);
+
+  /* Text Colors */
+  --rc-text-dark: var(--rc-color-dark);
+  --rc-text-light: var(--rc-color-white);
+
+  /* Font Sizes */
+  --rc-font-size-h1: 3.125em;
+  --rc-font-size-h2: 2.1875em;
+  --rc-font-size-h3: 1.5625em;
+  --rc-font-size-text: 1.25em;
+  --rc-font-size-link: 1.25em;
+
+  /* Spacings */
+  --rc-gap-xl: 50px;
+  --rc-gap-lg: 30px;
+  --rc-gap-md: 20px;
+  --rc-gap-sm: 10px;
+
+  --rc-padding-xl: 60px;
+  --rc-padding-lg: 30px;
+  --rc-padding-md: 20px;
+  --rc-padding-sm: 10px;
+
+  --rc-margin-section: 130px;
+
+  /* Borders */
+  --rc-radius-md: 5px;
+  --rc-radius-lg: 15px;
+}
+
+/* Reseteamos los estilos por defecto de la página */
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: var(--rc-font-primary);
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--rc-gap-lg);
+}
+
+.common-padding {
+  padding: var(--rc-padding-lg) var(--rc-padding-xl);
+}
+
+/* Header */
+#principal_header {
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+  background-color: var(--rc-bg-primary);
+}
+
+#principal_header > h1 {
+  font-size: var(--rc-font-size-h3);
+}
+
+.menu {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  #principal_header {
+    padding: var(--rc-gap-lg);
+  }
+
+  #principal_header > nav {
+    display: none;
+  }
+
+  .menu {
+    display: block;
+    cursor: pointer;
+  }
+}
+
+/* Hero Section */
+#hero {
+  padding-top: 150px;
+  gap: var(--rc-gap-xl);
+}
+
+#hero > div {
+  flex-direction: column;
+  gap: var(--rc-gap-lg);
+  width: 400px;
+  align-items: flex-start;
+}
+
+#hero > div > h2 {
+  font-size: var(--rc-font-size-h1);
+}
+
+@media (max-width: 1040px) {
+  #hero {
+    padding: var(--rc-gap-lg);
+    padding-top: 150px;
+  }
+
+  #hero > div {
+    width: 300px;
+    align-items: center;
+  }
+
+  #hero > div > h2 {
+    font-size: var(--rc-font-size-h2);
+    text-align: center;
+  }
+
+  #hero > div > p {
+    text-align: center;
+  }
+
+  #hero > img {
+    width: 350px;
+  }
+}
+
+@media (min-width: 1400px) {
+  #hero {
+    justify-content: space-around;
+  }
+}
+
+/* Companies Section */
+#companies {
+  flex-direction: column;
+  margin-top: var(--rc-margin-section);
+  gap: var(--rc-gap-md);
+}
+
+#companies > div {
+  width: 80%;
+  background-color: var(--rc-bg-secondary);
+  border-radius: var(--rc-radius-lg);
+  justify-content: space-around;
+  max-width: 680px;
+  min-width: 340px;
+}
+
+#companies > h5 {
+  opacity: 0.5;
+  font-weight: 400;
+  text-align: center;
+}
+
+#companies > div > img {
+  width: 15%;
+}
+
+@media (max-width: 700px) {
+  #principal_header {
+    padding: var(--rc-gap-lg);
+  }
+
+  #principal_header > nav {
+    display: none;
+  }
+
+  .menu {
+    display: block;
+    cursor: pointer;
+  }
+
+  #companies {
+    margin-top: 100px;
+  }
+}
+
+/* Testimonials Section */
+#testimonials {
+  flex-direction: column;
+  margin-top: var(--rc-margin-section);
+}
+
+#testimonials > h2 {
+  font-size: var(--rc-font-size-h3);
+}
+
+.testimonial {
+  flex-direction: column;
+  width: 30%;
+  min-width: 300px;
+  border-radius: var(--rc-radius-lg);
+  background-color: var(--rc-bg-secondary);
+  padding: var(--rc-padding-md);
+}
+
+.testimonial > img {
+  width: 200px;
+  border-radius: 100%;
+  border: 2px solid var(--rc-bg-secondary);
+}
+
+@media (max-width: 700px) {
+  #principal_header {
+    padding: var(--rc-gap-lg);
+  }
+
+  #principal_header > nav {
+    display: none;
+  }
+
+  .menu {
+    display: block;
+    cursor: pointer;
+  }
+
+  #companies {
+    margin-top: 100px;
+  }
+
+  #testimonials > h2 {
+    font-size: var(--rc-font-size-h3);
+  }
+}
+
+#companies > h5,
+.testimonial > p {
+  opacity: 0.5;
+  font-weight: 400;
+  text-align: center;
+}
+
+/* Footer */
+#footer {
+  margin-top: var(--rc-margin-section);
+  min-height: 30vh;
+  justify-content: space-around;
+  padding: var(--rc-padding-xl);
+  gap: var(--rc-gap-xl);
+  background-color: var(--rc-bg-secondary);
+}
+
+#footer > ul {
+  flex-direction: column;
+  align-items: flex-start;
+  width: 200px;
+}
+
+#footer > ul > li:first-child {
+  font-weight: bolder;
+  font-size: var(--rc-font-size-text);
+}

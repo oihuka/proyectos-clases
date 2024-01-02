@@ -203,6 +203,7 @@ button {
   width: 15%;
 }
 
+/* SECTION: TESTIMONIALS */
 #testimonials {
   background-color: var(--rtc-color-gray-0);
   display: flex;
@@ -271,6 +272,7 @@ article > p {
   text-transform: capitalize;
 }
 
+/* FOOTER */
 footer {
   width: 100%;
   height: 443px;
