@@ -112,19 +112,18 @@ main {
 footer {
   display: grid;
   grid-column: 2 / 4;
+  place-items: left;
   background-color: var(--rtc-color-006);
   color: var(--rtc-color-000);
   padding: var(--rtc-padding-m);
-  font-size: 1.25rem;
-}
-
-footer > h3 {
-  font-size: 1.85rem;
 }
 
 footer > button {
-  width: 20%;
-  height: 60%;
+  width: 200px;
+  height: fit-content;
+  padding: var(--rtc-padding-m);
+  border: none;
+  text-transform: uppercase;
 }
 
 .alumni,
