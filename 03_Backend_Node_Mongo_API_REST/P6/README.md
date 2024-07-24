@@ -49,7 +49,7 @@ Emplearemos para todas la referencias a **${BASE_PATH}** como "http://localhost:
 
 #### 4.1.1) Obtener todos los juegos (getJuegos)
 
-```http
+```
   GET ${BASE_PATH}/juegos
 ```
 
@@ -59,7 +59,7 @@ Emplearemos para todas la referencias a **${BASE_PATH}** como "http://localhost:
 
 #### 4.1.2) Buscar juego por id (getJuegoById)
 
-```http
+```
   GET ${BASE_PATH}/juegos/${id}
 ```
 
@@ -69,7 +69,7 @@ Emplearemos para todas la referencias a **${BASE_PATH}** como "http://localhost:
 
 #### 4.1.3) Buscar juegos por categoria (getJuegosByCategory)
 
-```http
+```
   GET ${BASE_PATH}/juegos/categoria/${categoria}
 ```
 
@@ -79,7 +79,7 @@ Emplearemos para todas la referencias a **${BASE_PATH}** como "http://localhost:
 
 #### 4.1.4) Buscar juegos por precio (getJuegosByPrice)
 
-```http
+```
   GET ${BASE_PATH}/juegos/precio/${precio}
 ```
 
@@ -89,7 +89,7 @@ Emplearemos para todas la referencias a **${BASE_PATH}** como "http://localhost:
 
 #### 4.1.5) Publicar juego (postJuego)
 
-```http
+```
   POST ${BASE_PATH}/juegos
 ```
 
@@ -102,7 +102,7 @@ Emplearemos para todas la referencias a **${BASE_PATH}** como "http://localhost:
 
 #### 4.1.6) Actualizar juego (putJuego)
 
-```http
+```
   PUT ${BASE_PATH}/juegos/${id}
 ```
 
@@ -119,7 +119,7 @@ Emplearemos para todas la referencias a **${BASE_PATH}** como "http://localhost:
 
 #### 4.1.7) Eliminar juego (deleteJuego)
 
-```http
+```
   DELETE ${BASE_PATH}/juegos/${id}
 ```
 
@@ -131,7 +131,7 @@ Emplearemos para todas la referencias a **${BASE_PATH}** como "http://localhost:
 
 #### 4.2.1) Obtener todas las plataformas (getPlataformas)
 
-```http
+```
   GET ${BASE_PATH}/plataformas
 ```
 
@@ -141,7 +141,7 @@ Emplearemos para todas la referencias a **${BASE_PATH}** como "http://localhost:
 
 #### 4.2.2) Buscar plataforma por id (getPlataformaById)
 
-```http
+```
   GET ${BASE_PATH}/plataformas/${id}
 ```
 
@@ -151,7 +151,7 @@ Emplearemos para todas la referencias a **${BASE_PATH}** como "http://localhost:
 
 #### 4.2.3) Publicar plataforma (postPlataforma)
 
-```http
+```
   POST ${BASE_PATH}/plataformas
 ```
 
@@ -163,7 +163,7 @@ Emplearemos para todas la referencias a **${BASE_PATH}** como "http://localhost:
 
 #### 4.2.4) Actualizar plataforma (putPlataforma)
 
-```http
+```
   PUT ${BASE_PATH}/plataformas/${id}
 ```
 
@@ -179,7 +179,7 @@ Emplearemos para todas la referencias a **${BASE_PATH}** como "http://localhost:
 
 #### 4.2.5) Eliminar plataforma (deletePlataforma)
 
-```http
+```
   DELETE ${BASE_PATH}/plataformas/${id}
 ```
 
