@@ -2,15 +2,15 @@
 
 ## 1) Requisitos
 
-- Servidor con express
-- Conexión a una base de datos de Mongo Atlas mediante mongoose
-- Creación de dos modelos
-- Una semilla que suba datos a una de las colecciones
-- Una relación entre colecciones, un array de datos relacionados
-- CRUD completo de ambas colecciones
-- README.md con la documentación del proyecto, indicando los endpoints y que hace cada uno
-- Al actualizar una colección que tenga un array de datos relacionados, no queremos que estos datos se borren
-- Evitaremos duplicados en el array relacionado
+✔ Servidor con express
+✔ Conexión a una base de datos de Mongo Atlas mediante mongoose
+✔ Creación de dos modelos
+❌ Una semilla que suba datos a una de las colecciones
+✔ Una relación entre colecciones, un array de datos relacionados
+✔ CRUD completo de ambas colecciones
+✔ README.md con la documentación del proyecto, indicando los endpoints y que hace cada uno
+✔ Al actualizar una colección que tenga un array de datos relacionados, no queremos que estos datos se borren
+❌ Evitaremos duplicados en el array relacionado
 
 ## 2) Sumario
 
