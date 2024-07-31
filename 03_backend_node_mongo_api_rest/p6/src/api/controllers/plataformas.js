@@ -41,13 +41,18 @@ const putPlataforma = async (req, res, next) => {
     const oldPlataforma = await Plataforma.findById(id);
     const newPlataforma = new Plataforma(req.body);
     newPlataforma._id = id;
-    newPlataforma.juegos = [...oldPlataforma.juegos, ...req.body.juegos]
+
+    const juegosUnicos = Array.from(new Set([...oldPlataforma.juegos, ...req.body.juegos]));
+    newPlataforma.juegos = juegosUnicos;
+
     const plataformaUpdated = await Plataforma.findByIdAndUpdate(id, newPlataforma, {
       new: true,
     });
     return res.status(200).json(plataformaUpdated);
   } catch (error) {
-    return res.status(400).json("Error en la solicitud");
+    let err_msg = "Error en la solicitud 'putPlataforma'.";
+    console.error(err_msg);
+    return res.status(400).json(err_msg);
   }
 };
 
