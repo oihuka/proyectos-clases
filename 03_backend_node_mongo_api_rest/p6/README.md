@@ -3,13 +3,21 @@
 ## 1) Requisitos
 
 ✔ Servidor con express
+
 ✔ Conexión a una base de datos de Mongo Atlas mediante mongoose
+
 ✔ Creación de dos modelos
+
 ❌ Una semilla que suba datos a una de las colecciones
+
 ✔ Una relación entre colecciones, un array de datos relacionados
+
 ✔ CRUD completo de ambas colecciones
+
 ✔ README.md con la documentación del proyecto, indicando los endpoints y que hace cada uno
+
 ✔ Al actualizar una colección que tenga un array de datos relacionados, no queremos que estos datos se borren
+
 ❌ Evitaremos duplicados en el array relacionado
 
 ## 2) Sumario
@@ -39,6 +47,12 @@ Una vez finalizada la instalación, procederemos con la ejecución monitorizada 
 
 ```sh
 node run dev
+```
+
+Para poblar la base de datos con unos datos de muestra, procederemos con la ejecución del script _seed_, definida en el archivo _package.json_.
+
+```sh
+npm run seed
 ```
 
 ## 4) Referencias API
