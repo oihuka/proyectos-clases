@@ -8,7 +8,7 @@
 
 ✔ Creación de dos modelos
 
-❌ Una semilla que suba datos a una de las colecciones
+✔ Una semilla que suba datos a una de las colecciones
 
 ✔ Una relación entre colecciones, un array de datos relacionados
 
@@ -18,7 +18,7 @@
 
 ✔ Al actualizar una colección que tenga un array de datos relacionados, no queremos que estos datos se borren
 
-❌ Evitaremos duplicados en el array relacionado
+✔ Evitaremos duplicados en el array relacionado
 
 ## 2) Sumario
 
