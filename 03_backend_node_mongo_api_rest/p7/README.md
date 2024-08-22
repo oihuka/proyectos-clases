@@ -2,19 +2,31 @@
 
 ## 1) Requisitos
 
-- Servidor con express
-- Conexión a una base de datos de Mongo Atlas mediante mongoose
-- Creación de tres modelos, uno de ellos el de users
-- Una semilla que suba datos a una de las colecciones
-- Dos relaciones entre colecciones, la idea es que los usuarios tengan un dato relacionado también
-- CRUD completo de todas las colecciones
-- 2 roles de usuario con diferentes permisos
-- README.md con la documentación del proyecto, indicando los endpoints y que hace cada uno
-- Los usuarios sólo pueden ser creados con rol user
-- Crearemos nuestro primer admin cambiando su rol directamente en la BBDD
-- Los admins pueden modificar a un usuario normal para cambiar su rol y hacerlo admin también
-- Los admins pueden eliminar usuarios, pero un usuario se puede eliminar a si mismo
-- Existe un middleware que compruebe el token que se aporta en la petición para dejar pasar o mostrar un mensaje de error
+✔ Servidor con express
+
+✔ Conexión a una base de datos de Mongo Atlas mediante mongoose
+
+✔ Creación de tres modelos, uno de ellos el de users
+
+✔ Una semilla que suba datos a una de las colecciones
+
+❌ Dos relaciones entre colecciones, la idea es que los usuarios tengan un dato relacionado también
+
+✔ CRUD completo de todas las colecciones
+
+✔ 2 roles de usuario con diferentes permisos
+
+✔ README.md con la documentación del proyecto, indicando los endpoints y que hace cada uno
+
+✔ Los usuarios sólo pueden ser creados con rol user
+
+✔ Crearemos nuestro primer admin cambiando su rol directamente en la BBDD
+
+✔ Los admins pueden modificar a un usuario normal para cambiar su rol y hacerlo admin también
+
+❌ Los admins pueden eliminar usuarios, pero un usuario se puede eliminar a si mismo
+
+✔ Existe un middleware que compruebe el token que se aporta en la petición para dejar pasar o mostrar un mensaje de error
 
 ## 2) Sumario
 
@@ -125,6 +137,42 @@ Emplearemos para todas la referencias a **${BASE_PATH}** como "http://localhost:
 | Parameter | Type     | Description                              |
 | :-------- | :------- | :--------------------------------------- |
 | `id`      | `string` | **Requerido**. Id del usuario a eliminar |
+
+#### 4.1.6) Obtener libros favoritos del usuario (getFavoritos) - Exclusivo para rol: 'admin' y 'user'
+
+```
+  GET ${BASE_PATH}/users/favoritos
+```
+
+❗Token obtenido al realizar el 'login'
+
+| Parameter | Type | Description                                  |
+| :-------- | :--- | :------------------------------------------- |
+| `-`       | `-`  | Lista todos los libros favoritos del usuario |
+
+#### 4.1.7) Añadir libro favorito al usuario (addFavorito) - Exclusivo para rol: 'admin' y 'user'
+
+```
+  POST ${BASE_PATH}/users/favoritos
+```
+
+❗Token obtenido al realizar el 'login'
+
+| JSON Body Parameter | Type     | Description                      |
+| :------------------ | :------- | :------------------------------- |
+| `id`                | `string` | Id del libro favorito a insertar |
+
+#### 4.1.8) Eliminar libro favorito del usuario (deleteFavorito) - Exclusivo para rol: 'admin' y 'user'
+
+```
+  DELETE ${BASE_PATH}/users/favoritos/${id}
+```
+
+❗Token obtenido al realizar el 'login'
+
+| Parameter | Type     | Description                                     |
+| :-------- | :------- | :---------------------------------------------- |
+| `id`      | `string` | **Requerido**. Id del libro favorito a eliminar |
 
 ### 5.1) Libros
 
