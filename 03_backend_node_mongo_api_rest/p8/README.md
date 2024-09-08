@@ -2,16 +2,25 @@
 
 ## 1) Requisitos
 
-- Servidor con express
-- Conexión a una base de datos de Mongo Atlas mediante mongoose
-- Creación de dos modelos, ambos, con un campo que nos permita almacenar un archivo
-- Una semilla que suba datos a una de las colecciones
-- Una relación entre colecciones
-- CRUD completo de todas las colecciones
-- README.md con la documentación del proyecto, indicando los endpoints y que hace cada uno
-- Subida de archivos mediante cloudinary a ambas colecciones
-- Eliminación de archivos en cloudinary cuando se borra el dato en la BBDD
-- Intento de reutilización del storage de cloudinary cambiando la carpeta (puede estar comentado)
+✔ Servidor con express
+
+✔ Conexión a una base de datos de Mongo Atlas mediante mongoose
+
+✔ Creación de dos modelos, ambos, con un campo que nos permita almacenar un archivo
+
+❌ Una semilla que suba datos a una de las colecciones
+
+✔ Una relación entre colecciones
+
+✔ CRUD completo de todas las colecciones
+
+✔ README.md con la documentación del proyecto, indicando los endpoints y que hace cada uno
+
+✔ Subida de archivos mediante cloudinary a ambas colecciones
+
+✔ Eliminación de archivos en cloudinary cuando se borra el dato en la BBDD
+
+✔ Intento de reutilización del storage de cloudinary cambiando la carpeta (puede estar comentado)
 
 ## 2) Sumario
 
