@@ -8,7 +8,7 @@
 
 ✔ Creación de dos modelos, ambos, con un campo que nos permita almacenar un archivo
 
-❌ Una semilla que suba datos a una de las colecciones
+✔ Una semilla que suba datos a una de las colecciones
 
 ✔ Una relación entre colecciones
 
