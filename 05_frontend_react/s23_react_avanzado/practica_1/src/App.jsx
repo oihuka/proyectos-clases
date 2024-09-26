@@ -1,36 +1,18 @@
-import { useState, useEffect } from 'react'
 import './App.css'
+import Timer from './components/Timer/Timer'
 import Calculator from './components/Calculator/Calculator'
+import { useTime } from './customHooks/useTime'
 
-// Custom Hook
-function useCurrentTime() {
-  const [currentTime, setCurrentTime] = useState(new Date())
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentTime(new Date())
-    }, 1000)
-
-    return () => clearInterval(timer)
-  }, [])
-
-  return currentTime
-}
-
-// Componente Timer
-function Timer({ time }) {
-  return <p>Hora actual: {time.toLocaleTimeString()}</p>
-}
-
-function App() {
-  const currentTime = useCurrentTime()
+const App = () => {
+  const { date } = useTime()
 
   return (
-    <>
-      <h1>Reloj en tiempo real</h1>
-      <Timer time={currentTime} />
+    <div className='app-container'>
+      <div className='timer-container'>
+        <Timer date={date} />
+      </div>
       <Calculator />
-    </>
+    </div>
   )
 }
 

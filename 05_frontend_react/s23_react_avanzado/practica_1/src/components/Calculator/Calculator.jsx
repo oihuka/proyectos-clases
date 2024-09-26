@@ -1,85 +1,89 @@
-import React, { useRef, useState } from 'react'
+import { useReducer, useRef, memo, useCallback, useMemo } from 'react'
+import './Calculator.css'
+import { calculate } from '../../utils/calculate'
 
-function Calculator() {
-  const [currentNumber, setCurrentNumber] = useState('')
-  const [operation, setOperation] = useState('')
-  const [firstNumber, setFirstNumber] = useState(null)
-  const [lastResult, setLastResult] = useState(null)
-  const [history, setHistory] = useState([])
-  const inputRef = useRef(null)
+const INITIAL_CALCULATOR_STATE = {
+  n1: 0,
+  operation: '',
+  result: 0,
+  historicResults: [],
+  historicResultsSorted: []
+}
 
-  const handleNumberInput = (e) => {
-    setCurrentNumber(e.target.value)
+const calculatorReducer = (state, action) => {
+  switch (action.type) {
+    case 'SET_OPERATION':
+      return {
+        ...state,
+        n1: parseInt(action.payload.inputValue),
+        operation: action.payload.operation
+      }
+    case 'CALCULATE':
+      return {
+        ...state,
+        result: action.payload,
+        n1: 0,
+        operation: '',
+        historicResults: [...state.historicResults, action.payload]
+      }
+    case 'SORT':
+      return { ...state, historicResultsSorted: [...action.payload] }
+    default:
+      return state
   }
+}
 
-  const handleOperationSelect = (e) => {
-    setOperation(e.target.value)
-    setFirstNumber(parseFloat(currentNumber))
-    setCurrentNumber('')
-    inputRef.current.focus()
-  }
+const Calculator = memo(() => {
+  const [state, dispatch] = useReducer(
+    calculatorReducer,
+    INITIAL_CALCULATOR_STATE
+  )
 
-  const handleCalculate = () => {
-    const secondNumber = parseFloat(currentNumber)
-    let result
+  const input = useRef()
 
-    switch (operation) {
-      case '+':
-        result = firstNumber + secondNumber
-        break
-      case '-':
-        result = firstNumber - secondNumber
-        break
-      case '*':
-        result = firstNumber * secondNumber
-        break
-      case '/':
-        result = firstNumber / secondNumber
-        break
-      default:
-        result = 'Operación no válida'
-    }
+  const { result, operation, n1, historicResults, historicResultsSorted } =
+    state
 
-    setLastResult(result)
-    setHistory([...history, result].sort((a, b) => a - b))
-    setCurrentNumber('')
-    setOperation('')
-    setFirstNumber(null)
-    inputRef.current.focus()
-  }
+  const setOperation = useCallback(
+    (operation) => {
+      dispatch({
+        type: 'SET_OPERATION',
+        payload: { inputValue: input.current.value, operation: operation }
+      })
+      input.current.value = ''
+    },
+    [operation]
+  )
+
+  useMemo(() => {
+    dispatch({
+      type: 'SORT',
+      payload: historicResults.toSorted((a, b) => a - b)
+    })
+  }, [historicResults])
 
   return (
-    <div>
-      <h2>Calculadora Simple</h2>
-      <input
-        type='number'
-        value={currentNumber}
-        onChange={handleNumberInput}
-        ref={inputRef}
-      />
-      <select
-        value={operation}
-        onChange={handleOperationSelect}
-        disabled={!currentNumber && !firstNumber}
-      >
-        <option value=''>Selecciona operación</option>
-        <option value='+'>+</option>
-        <option value='-'>-</option>
-        <option value='*'>*</option>
-        <option value='/'>/</option>
-      </select>
-      <button onClick={handleCalculate} disabled={!operation || !currentNumber}>
-        =
-      </button>
-      <p>Último resultado: {lastResult !== null ? lastResult : 'N/A'}</p>
-      <h3>Historial de resultados:</h3>
-      <ul>
-        {history.map((result, index) => (
-          <li key={index}>{result}</li>
+    <div className='calc'>
+      <input type='number' ref={input} />
+      <div className='operations'>
+        <button onClick={() => setOperation('+')}>+</button>
+        <button onClick={() => setOperation('-')}>-</button>
+        <button onClick={() => setOperation('*')}>X</button>
+        <button onClick={() => setOperation('/')}>/</button>
+        <button onClick={() => setOperation('%')}>%</button>
+        <button onClick={() => calculate(dispatch, input, n1, operation)}>
+          =
+        </button>
+      </div>
+      <h2>Último resultado: {result}</h2>
+      <div className='historic'>
+        <h2>Resultados históricos</h2>
+        {historicResultsSorted.map((resultH, index) => (
+          <h3 key={index}>{resultH}</h3>
         ))}
-      </ul>
+      </div>
     </div>
   )
-}
+})
 
 export default Calculator
