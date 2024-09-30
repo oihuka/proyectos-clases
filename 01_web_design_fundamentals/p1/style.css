@@ -1,0 +1,306 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+  --color-primary: #689e0c;
+  --color-secondary: #6b8e23;
+  --color-background: #ffffff;
+  --color-text: #333333;
+  --color-light-gray: #f7f7f7;
+  --font-family: 'Poppins', -apple-system, BlinkMacSystemFont, Roboto,
+    Helvetica Neue, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+header {
+  background-color: var(--color-background);
+  border-bottom: 1px solid var(--color-light-gray);
+  padding: 20px 0;
+}
+
+header .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-family);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+header h1 {
+  color: var(--color-primary);
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  animation: reveal 1.5s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.house-icon {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  margin-left: 15px;
+}
+
+.house-icon .roof {
+  position: absolute;
+  top: 0;
+  left: 5px;
+  width: 40px;
+  height: 20px;
+  background-color: var(--color-primary);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  animation: changeColor 4s infinite;
+}
+
+.house-icon .body {
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  width: 30px;
+  height: 30px;
+  background-color: var(--color-secondary);
+  animation: changeColor 4s infinite 0.5s;
+}
+
+.house-icon .window {
+  position: absolute;
+  bottom: 18px;
+  left: 15px;
+  width: 10px;
+  height: 10px;
+  background-color: var(--color-background);
+  animation: glowWindow 4s infinite 1s;
+}
+
+.house-icon .door {
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  width: 10px;
+  height: 15px;
+  background-color: var(--color-primary);
+  animation: changeColor 4s infinite 1.5s;
+}
+
+@keyframes changeColor {
+  0%,
+  100% {
+    background-color: var(--color-primary);
+  }
+  33% {
+    background-color: #8fbc8f;
+  }
+  66% {
+    background-color: #2e8b57;
+  }
+}
+
+@keyframes glowWindow {
+  0%,
+  100% {
+    background-color: var(--color-background);
+    box-shadow: none;
+  }
+  50% {
+    background-color: #ffff00;
+    box-shadow: 0 0 5px #ffff00;
+  }
+}
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+header form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+header input,
+header button {
+  padding: 10px 15px;
+  border: 1px solid var(--color-light-gray);
+  border-radius: 25px;
+  font-size: 1rem;
+}
+
+header button {
+  background-color: var(--color-primary);
+  color: var(--color-background);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+header button:hover {
+  background-color: var(--color-secondary);
+}
+
+main {
+  padding: 40px 0;
+}
+
+.alojamientos,
+.ciudades {
+  margin-bottom: 40px;
+}
+
+.alojamientos h2,
+.ciudades h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: var(--color-primary);
+  position: relative;
+  display: inline-block;
+}
+
+.alojamientos h2::after,
+.ciudades h2::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  bottom: -5px;
+  left: 0;
+  background-color: var(--color-secondary);
+  transition: width 0.3s ease-in-out;
+}
+
+.alojamientos h2:hover::after,
+.ciudades h2:hover::after {
+  width: 100%;
+}
+
+.alojamientos ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  list-style-type: none;
+}
+
+.alojamiento {
+  border: 1px solid var(--color-light-gray);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.alojamiento:hover {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.alojamiento img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.alojamiento h3,
+.alojamiento p,
+.alojamiento a {
+  padding: 0 15px;
+}
+
+.alojamiento h3 {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  color: var(--color-text);
+  transition: color 0.3s ease;
+}
+
+.alojamiento:hover h3 {
+  color: var(--color-primary);
+}
+
+.alojamiento p {
+  color: var(--color-secondary);
+  margin: 5px 0;
+}
+
+.alojamiento a {
+  display: inline-block;
+  margin: 10px 15px;
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.ciudades ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  list-style-type: none;
+}
+
+.ciudades a {
+  color: var(--color-text);
+  text-decoration: none;
+  padding: 5px 10px;
+  border: 1px solid var(--color-light-gray);
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.ciudades a:hover {
+  background-color: var(--color-light-gray);
+}
+
+footer {
+  background-color: var(--color-light-gray);
+  color: var(--color-text);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 0.9rem;
+}
+
+@media screen and (max-width: 768px) {
+  header form {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  header input,
+  header button {
+    width: 100%;
+  }
+
+  .alojamientos ul {
+    grid-template-columns: 1fr;
+  }
+}

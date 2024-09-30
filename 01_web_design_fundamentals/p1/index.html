@@ -4,59 +4,123 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ThePowerBnB | Tu casa en cualquier lugar</title>
+  <title>PowerBnB | Tu casa, tu mundo</title>
   <link rel="stylesheet" href="style.css">
+  <meta name="description"
+    content="Encuentra alojamientos únicos en PowerBnB. Desde apartamentos en el centro de la ciudad hasta casas rurales con encanto.">
+  <meta name="keywords" content="alojamiento, vacaciones, viajes, apartamentos, casas rurales">
+  <link rel="canonical" href="https://www.powerbnb.com">
 </head>
 
 <body>
   <header>
-    <h1>ThePowerBnB</h1>
-    <form action="#">
-      <input type="text" placeholder="¿D&oacute;;nde quieres ir?" name="ubicacion">
-      <input type="date" name="fecha_llegada">
-      <input type="date" name="fecha_salida">
-      <button type="submit">Buscar</button>
-    </form>
+    <div class="container">
+      <h1>
+        PowerBnB
+        <span class="house-icon">
+          <span class="roof"></span>
+          <span class="body"></span>
+          <span class="window"></span>
+          <span class="door"></span>
+        </span>
+      </h1>
+      <form action="#" aria-label="Búsqueda de alojamientos">
+        <input type="text" placeholder="¿Dónde quieres ir?" name="ubicacion" aria-label="Ubicación">
+        <input type="date" name="fecha_llegada" aria-label="Fecha de llegada">
+        <input type="date" name="fecha_salida" aria-label="Fecha de salida">
+        <button type="submit">Buscar</button>
+      </form>
+    </div>
   </header>
-  <main>
+
+  <main class="container">
     <section class="alojamientos">
       <h2>Alojamientos destacados</h2>
       <ul>
         <li class="alojamiento">
-          <img src="assets/alojamiento1.jpg" alt="Alojamiento 1">
-          <h3>Apartamento en el centro de la ciudad</h3>
-          <p>Precio por noche: 50€</p>
-          <a href="#">Ver m&aacute;s</a>
+          <img src="https://a0.muscache.com/im/pictures/7ca6118f-68c7-4a32-8bbc-09ce1840a373.jpg?im_w=720"
+            alt="Loft moderno con vistas a la ciudad">
+          <h3>Loft moderno en Barcelona</h3>
+          <p>75€ noche</p>
+          <a href="https://ejemplo.com/alojamiento1">Ver más</a>
         </li>
+
         <li class="alojamiento">
-          <img src="assets/alojamiento2.jpg" alt="Alojamiento 2">
-          <h3>Casa con piscina privada</h3>
-          <p>Precio por noche: 100€</p>
-          <a href="#">Ver m&aacute;s</a>
+          <img src="https://a0.muscache.com/im/pictures/71b35a78-db84-4a86-bdef-60d9acd4999d.jpg?im_w=720"
+            alt="Casa minimalista con vistas a la montaña">
+          <h3>Casa rural en Sierra Nevada, Granada</h3>
+          <p>90€ noche</p>
+          <a href="https://ejemplo.com/alojamiento2">Ver más</a>
         </li>
+
         <li class="alojamiento">
-          <img src="assets/alojamiento3.jpg" alt="Alojamiento 3">
-          <h3>Casa rural en la montaña</h3>
-          <p>Precio por noche: 75€</p>
-          <a href="#">Ver m&aacute;s</a>
+          <img src="https://a0.muscache.com/im/pictures/e1fcc26e-fe94-4fa4-9001-b7351824f1d9.jpg?ml=true&im_w=720"
+            alt="Villa estilo árabe con piscina">
+          <h3>Villa árabe en Córdoba</h3>
+          <p>120€ noche</p>
+          <a href="https://ejemplo.com/alojamiento3">Ver más</a>
+        </li>
+
+        <li class="alojamiento">
+          <img src="https://a0.muscache.com/im/pictures/b4367b23-660b-4a35-9c50-0da27876446b.jpg?ml=true&im_w=720"
+            alt="Apartamento en el centro de la ciudad">
+          <h3>Apartamento céntrico en Madrid</h3>
+          <p>85€ noche</p>
+          <a href="https://ejemplo.com/alojamiento4">Ver más</a>
+        </li>
+
+        <li class="alojamiento">
+          <img src="https://a0.muscache.com/im/pictures/726097c0-b3a5-4e3d-bf25-162d99c33acf.jpg?im_w=720"
+            alt="Casa de playa con vistas al mar">
+          <h3>Casa de playa en Marbella, Málaga</h3>
+          <p>110€ noche</p>
+          <a href="https://ejemplo.com/alojamiento5">Ver más</a>
+        </li>
+
+        <li class="alojamiento">
+          <img src="https://a0.muscache.com/im/pictures/a459014e-0aa0-4d6a-9b1d-d7d92e6d6e89.jpg?im_w=720"
+            alt="Cabaña en el bosque">
+          <h3>Cabaña en el Parque Nacional de Ordesa, Huesca</h3>
+          <p>70€ noche</p>
+          <a href="https://ejemplo.com/alojamiento6">Ver más</a>
+        </li>
+
+        <li class="alojamiento">
+          <img src="https://a0.muscache.com/im/pictures/233ee365-2efa-4828-8ee8-a8367cb95c50.jpg?ml=true&im_w=720"
+            alt="Apartamento con terraza en la ciudad">
+          <h3>Ático con terraza en Valencia</h3>
+          <p>95€ noche</p>
+          <a href="https://ejemplo.com/alojamiento7">Ver más</a>
+        </li>
+
+        <li class="alojamiento">
+          <img
+            src="https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE1MTQzNjQyNjE0ODY4NjUzMw%3D%3D/original/e7b92df6-20a9-4efc-90a0-58568599f546.jpeg?im_w=720"
+            alt="Casa tradicional en pueblo">
+          <h3>Casa tradicional en Santillana del Mar, Cantabria</h3>
+          <p>80€ noche</p>
+          <a href="https://ejemplo.com/alojamiento8">Ver más</a>
         </li>
       </ul>
     </section>
+
     <section class="ciudades">
       <h2>Explora por ciudad</h2>
       <ul>
-        <li><a href="#">Barcelona</a></li>
-        <li><a href="#">Madrid</a></li>
-        <li><a href="#">Sevilla</a></li>
-        <li><a href="#">M&aacute;laga</a></li>
-        <li><a href="#">Valencia</a></li>
+        <li><a href="https://ejemplo.com/barcelona">Barcelona</a></li>
+        <li><a href="https://ejemplo.com/madrid">Madrid</a></li>
+        <li><a href="https://ejemplo.com/sevilla">Sevilla</a></li>
+        <li><a href="https://ejemplo.com/malaga">Málaga</a></li>
+        <li><a href="https://ejemplo.com/valencia">Valencia</a></li>
       </ul>
     </section>
   </main>
 
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 ThePowerBnB. Todos los derechos reservados.</p>
+    </div>
+  </footer>
 </body>
-<footer>
-  <p>Copyright &copy; 2024 ThePowerBnB</p>
-</footer>
 
 </html>
