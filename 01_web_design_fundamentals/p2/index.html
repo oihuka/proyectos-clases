@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda de Productos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <h1>Nuestra Tienda</h1>
+  </header>
+
+  <main>
+    <button id="openModal">Abrir Filtros</button>
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <form id="filterForm">
+          <label for="minPrice">Precio mínimo:</label>
+          <input type="number" id="minPrice" name="minPrice">
+
+          <label for="maxPrice">Precio máximo:</label>
+          <input type="number" id="maxPrice" name="maxPrice">
+
+          <label for="category">Categoría:</label>
+          <select id="category" name="category">
+            <option value="">Todas</option>
+            <option value="electronica">Electrónica</option>
+            <option value="ropa">Ropa</option>
+            <option value="hogar">Hogar</option>
+          </select>
+
+          <button type="button" id="applyFilters">Aplicar Filtros</button>
+          <button type="button" id="clearFilters">Limpiar Filtros</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="productContainer"></div>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Nuestra Tienda. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="index.js"></script>
+</body>
+
+</html>
