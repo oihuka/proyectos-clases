@@ -1,0 +1,116 @@
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.game-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: var(--background-color);
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.info-item {
+    margin: 0.25rem;
+}
+
+.snake-board {
+    display: grid;
+    grid-template-columns: repeat(20, 20px);
+    gap: 1px;
+    background-color: var(--background-color);
+    border: 2px solid var(--primary-color);
+    padding: 1px;
+    margin: 2rem auto;
+}
+
+.snake-cell {
+    width: 20px;
+    height: 20px;
+    background-color: var(--background-color);
+    border: 1px solid rgba(78, 204, 163, 0.2);
+    transition: background-color 0.2s ease;
+}
+
+.snake-cell.snake {
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+.snake-cell.food {
+    background-color: #ff4136;
+    border-radius: 50%;
+}
+
+.controls-info {
+    margin-top: 1rem;
+    text-align: center;
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+.reset-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.reset-button:hover {
+    background-color: #45b08c;
+}
+
+@media (max-width: 480px) {
+    .game-info {
+        font-size: 0.8rem;
+    }
+
+    .snake-board {
+        grid-template-columns: repeat(20, 15px);
+    }
+
+    .snake-cell {
+        width: 15px;
+        height: 15px;
+    }
+}
+
+.game-controls {
+    display: flex;
+    gap: 0.5rem;
+    margin: 0.25rem;
+}
+
+.control-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.control-button:disabled {
+    background-color: #666;
+    cursor: not-allowed;
+}
+
+.control-button:hover:not(:disabled) {
+    background-color: #45b08c;
+}

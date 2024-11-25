@@ -1,0 +1,30 @@
+@import 'header.css';
+@import 'home.css';
+@import 'tictactoe.css';
+@import 'battleship.css';
+@import 'snake.css';
+
+:root {
+  --primary-color: #4ecca3;
+  --background-color: #232931;
+  --text-color: #eeeeee;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  padding: 2rem;
+}
