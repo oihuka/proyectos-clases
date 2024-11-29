@@ -22,9 +22,33 @@ function closeModal() {
   modal.style.display = "none";
 }
 
-function displayProducts(productsToShow) {
-  productContainer.innerHTML = "";
-  productsToShow.forEach(product => {
+function displayProducts(products) {
+  const container = document.getElementById('productContainer');
+  container.innerHTML = '';
+
+  if (products.length === 0) {
+    const messageDiv = document.createElement('div');
+    messageDiv.className = 'no-products-message';
+    messageDiv.innerHTML = `
+      <h2>No se encontraron productos con los filtros seleccionados</h2>
+      <div class="suggested-products">
+        <h3>Productos sugeridos que te podrían interesar:</h3>
+        <div id="suggestedProducts" class="product-grid"></div>
+      </div>
+    `;
+    container.appendChild(messageDiv);
+    // Mostrar 3 productos aleatorios
+    const randomProducts = getRandomProducts(3);
+    const suggestedContainer = document.getElementById('suggestedProducts');
+    randomProducts.forEach(product => {
+      // Usar la misma función que ya tienes para crear las tarjetas de producto
+      const productCard = createProductCard(product);
+      suggestedContainer.appendChild(productCard);
+    });
+    return;
+  }
+
+  products.forEach(product => {
     const productElement = document.createElement("div");
     productElement.classList.add("product");
     productElement.innerHTML = `
@@ -35,8 +59,31 @@ function displayProducts(productsToShow) {
         <p>Categoría: ${product.category}</p>
       </div>
     `;
-    productContainer.appendChild(productElement);
+    container.appendChild(productElement);
   });
+}
+
+function showToast(message, duration = 3000) {
+  // Eliminar toast anterior si existe
+  const existingToast = document.querySelector('.toast-notification');
+  if (existingToast) {
+    existingToast.remove();
+  }
+
+  // Crear nuevo toast
+  const toast = document.createElement('div');
+  toast.className = 'toast-notification';
+  toast.textContent = message;
+  document.body.appendChild(toast);
+
+  // Mostrar el toast
+  setTimeout(() => toast.classList.add('show'), 100);
+
+  // Ocultar y eliminar el toast
+  setTimeout(() => {
+    toast.classList.remove('show');
+    setTimeout(() => toast.remove(), 300);
+  }, duration);
 }
 
 function applyFilters() {
@@ -45,14 +92,14 @@ function applyFilters() {
   const category = document.getElementById("category").value;
 
   let filteredProducts = products.filter(product => {
-      return ((!minPrice || product.price >= minPrice) &&
-              (!maxPrice || product.price <= maxPrice) &&
-              (!category || product.category === category));
+    return ((!minPrice || product.price >= minPrice) &&
+            (!maxPrice || product.price <= maxPrice) &&
+            (!category || product.category === category));
   });
 
   if (filteredProducts.length === 0) {
-      alert("No se encontraron productos. Mostrando productos sugeridos.");
-      filteredProducts = getRandomProducts(3);
+    showToast("No se encontraron productos. Mostrando sugerencias...");
+    filteredProducts = getRandomProducts(3);
   }
 
   displayProducts(filteredProducts);
