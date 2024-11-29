@@ -10,7 +10,7 @@ export function ImageGrid(images) {
     card.innerHTML = `
       <img src="${image.urls.small}" alt="${image.alt_description}">
       <div class="image-info">
-        <img src="${image.user.profile_image.small}" alt="${image.user.name}" class="user-avatar">
+        <img src="${image.user.profile_image.small}" alt="${image.user.name}" class="avatar">
         <span>${image.user.name}</span>
       </div>
     `;

@@ -1,4 +1,10 @@
 :root {
+  --primary-color: #e60023;
+  --background-color: #fff;
+  --text-color: #111;
+  --gray-light: #efefef;
+  --shadow: rgba(0, 0, 0, 0.1);
+
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -24,4 +30,27 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 1rem;
+}
+
+.image-creator {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  background: var(--background-color);
 }
