@@ -2,9 +2,15 @@ const products = [
   { id: 1, name: "Smartphone", price: 299, category: "electronica", image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" },
   { id: 2, name: "Laptop", price: 999, category: "electronica", image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" },
   { id: 3, name: "Camiseta", price: 19, category: "ropa", image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" },
-  { id: 4, name: "Pantalón", price: 49, category: "ropa", image: "https://images.unsplash.com/photo-1542272454315-4c01d7abdf4a?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" },
+  { id: 4, name: "Pantalón", price: 49, category: "ropa", image: "https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" },
   { id: 5, name: "Lámpara", price: 39, category: "hogar", image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" },
   { id: 6, name: "Silla", price: 79, category: "hogar", image: "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" },
+  { id: 7, name: "Tablet", price: 199, category: "electronica", image: "https://images.unsplash.com/photo-1542751110-97427bbecf20?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" },
+  { id: 8, name: "Sudadera", price: 39, category: "ropa", image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" },
+  { id: 9, name: "Mesa", price: 129, category: "hogar", image: "https://images.unsplash.com/photo-1530018607912-eff2daa1bac4?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" },
+  { id: 10, name: "Auriculares", price: 59, category: "electronica", image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" },
+  { id: 11, name: "Zapatillas", price: 89, category: "ropa", image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" },
+  { id: 12, name: "Espejo", price: 45, category: "hogar", image: "https://images.unsplash.com/photo-1560828343-a0b3d8864d1b?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" }
 ];
 
 const modal = document.getElementById("modal");
@@ -87,9 +93,15 @@ function showToast(message, duration = 3000) {
 }
 
 function applyFilters() {
-  const minPrice = document.getElementById("minPrice").value;
-  const maxPrice = document.getElementById("maxPrice").value;
+  const minPrice = Number(document.getElementById("minPrice").value);
+  const maxPrice = Number(document.getElementById("maxPrice").value);
   const category = document.getElementById("category").value;
+
+  // Validación de precios
+  if (minPrice && maxPrice && minPrice > maxPrice) {
+    showToast("El precio mínimo no puede ser mayor que el precio máximo");
+    return;
+  }
 
   let filteredProducts = products.filter(product => {
     return ((!minPrice || product.price >= minPrice) &&
